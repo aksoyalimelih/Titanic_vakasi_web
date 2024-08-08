@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Survival Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Titanic Survival Predictor</h1>
+    <form id="predict-form" method="post">
+        <label for="bilet_sinifi">Bilet Sınıfı:</label>
+        <select id="bilet_sinifi" name="bilet_sinifi">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <label for="yas">Yolcunun Yaşı:</label>
+        <input type="number" id="yas" name="yas" min="0" max="80" step="1" required>
+
+        <label for="cocuk_sayisi">Yolcunun Çocuk Sayısı:</label>
+        <input type="number" id="cocuk_sayisi" name="cocuk_sayisi" min="0" step="1" required>
+
+        <label for="yanindaki_kisi_sayisi">Yolcunun Yanındaki Kişi Sayısı:</label>
+        <input type="number" id="yanindaki_kisi_sayisi" name="yanindaki_kisi_sayisi" min="0" max="20" step="1" required>
+
+        <label for="bilet_fiyati">Bilet Fiyatı:</label>
+        <input type="number" id="bilet_fiyati" name="bilet_fiyati" min="0" max="550" step="1" required>
+
+        <label>Yolcu Yetişkin Mi?</label>
+        <div class="radio-group">
+            <input type="radio" id="yetiskin_mi_yes" name="yetiskin_mi" value="1">
+            <label for="yetiskin_mi_yes">Evet</label>
+            <input type="radio" id="yetiskin_mi_no" name="yetiskin_mi" value="0">
+            <label for="yetiskin_mi_no">Hayır</label>
+        </div>
+
+        <label>Limanlar:</label>
+        <div class="checkbox-group">
+            <input type="radio" id="liman_C" name="liman" value="C">
+            <label for="liman_C">Liman C</label>
+            <input type="radio" id="liman_Q" name="liman" value="Q">
+            <label for="liman_Q">Liman Q</label>
+            <input type="radio" id="liman_S" name="liman" value="S">
+            <label for="liman_S">Liman S</label>
+        </div>
+
+        <label>Yolcunun Memleketi:</label>
+        <div class="checkbox-group">
+            <input type="radio" id="memleket_Cherbourg" name="memleket" value="Cherbourg">
+            <label for="memleket_Cherbourg">Cherbourg</label>
+            <input type="radio" id="memleket_Queenstown" name="memleket" value="Queenstown">
+            <label for="memleket_Queenstown">Queenstown</label>
+            <input type="radio" id="memleket_Southampton" name="memleket" value="Southampton">
+            <label for="memleket_Southampton">Southampton</label>
+        </div>
+
+        <button type="submit">Tahmin Et</button>
+    </form>
+
+    <div id="prediction">
+        <div id="prediction-result">
+            Yolcunun hayati durumu henüz tahmin edilmedi.
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
